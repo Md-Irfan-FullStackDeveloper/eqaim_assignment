@@ -33,7 +33,7 @@ To get the all blogs.
 ### To add an blog post
 
 ```
-  GET localhost:8080/addBlog
+  POST localhost:8080/addBlog
 ```
 ```
     {
