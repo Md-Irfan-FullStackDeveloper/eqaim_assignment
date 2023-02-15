@@ -1,7 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const { getAllBlogs, addBlogpost } = require("./controllers/blogController");
+const {
+  getAllBlogs,
+  addBlogpost,
+  getBlogById,
+} = require("./controllers/blogController");
 require("dotenv").config();
 
 const port = process.env.PORT || 8080;
@@ -14,8 +18,9 @@ app.get("/", (req, res) => {
   return res.send("Api home page");
 });
 
-app.get('/blogs', getAllBlogs)
-app.post('/addBlog', addBlogpost)
+app.get("/blogs", getAllBlogs);
+app.get("/:blogId", getBlogById);
+app.post("/addBlog", addBlogpost);
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/Blogs")
